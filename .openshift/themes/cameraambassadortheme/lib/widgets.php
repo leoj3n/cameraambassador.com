@@ -111,7 +111,7 @@ class List_Posts_Widget extends WP_Widget {
       array(
         'offset'         => 0,
         'orderby'        => 'title',
-        'order'          => 'DESC',
+        'order'          => 'ASC',
         'post_type'      => 'camera',
         'post_status'    => 'publish',
         'posts_per_page' => -1
