@@ -109,11 +109,12 @@ class List_Posts_Widget extends WP_Widget {
 <?php
     $posts = get_posts(
       array(
-        'offset'      => 0,
-        'orderby'     => 'title',
-        'order'       => 'DESC',
-        'post_type'   => 'camera',
-        'post_status' => 'publish'
+        'offset'         => 0,
+        'orderby'        => 'title',
+        'order'          => 'DESC',
+        'post_type'      => 'camera',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1
       ));
 
     foreach ( $posts as $key => $post ) {?>
