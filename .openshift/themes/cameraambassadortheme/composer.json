@@ -1,0 +1,59 @@
+{
+  "name": "leoj3n/cameraambassador.com",
+  "type": "project",
+  "license": "MIT",
+  "description": "A modern WordPress website",
+  "homepage": "http://cameraambassador.com",
+  "authors": [
+    {
+      "name": "Joel Kuzmarski",
+      "email": "leoj3n@gmail.com",
+      "homepage": "https://github.com/leoj3n"
+    },
+    {
+      "name": "Arthur Gutnov",
+      "email": "agutnov@gmail.com",
+      "homepage": "https://github.com/agutnov"
+    }
+  ],
+  "keywords": [
+    "wordpress", "camera", "photo", "video", "rental", "chicago"
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "roots/roots-wrapper-toolbar",
+        "type": "wordpress-plugin",
+        "version": "0.1.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/roots/roots-wrapper-toolbar/archive/master.zip"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2",
+    "composer/installers": "dev-master",
+    "roots/roots-wrapper-toolbar": "*",
+    "wpackagist-plugin/wordpress-seo": "*",
+    "wpackagist-plugin/akismet": "dev-trunk",
+    "wpackagist-plugin/front-end-editor": "*",
+    "wpackagist-plugin/advanced-custom-fields": "*",
+    "wpackagist-plugin/post-type-archive-links": "*",
+    "wpackagist-plugin/widget-settings-importexport": "*",
+    "easy-cpt": "*"
+  },
+  "extra": {
+    "installer-paths": {
+      "../../plugins/{$name}/": ["type:wordpress-plugin"],
+      "../../mu-plugins/{$name}/": ["type:wordpress-muplugin"]
+    }
+  }
+}
+

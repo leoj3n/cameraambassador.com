@@ -1,0 +1,16 @@
+{
+  "name": "cameraambassador",
+  "version": "6.5.2",
+  "homepage": "https://github.com/roots/roots",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~0.2.1"
+  }
+}

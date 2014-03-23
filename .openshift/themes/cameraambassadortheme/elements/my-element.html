@@ -1,0 +1,16 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="my-element" attributes="color" noscript>
+  <template>
+    <style>
+    span {
+      color: {{color}};
+    }
+    </style>
+    <span>Hello <b>my-element</b>. {{color}} <content select="img"></content>.</span>
+  </template>
+  <script>
+      Polymer('my-element');
+    </script>
+</polymer-element>
+
