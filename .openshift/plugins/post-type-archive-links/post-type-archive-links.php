@@ -34,8 +34,6 @@ Domain Path:  /lang/
 // Load at the default priority of 10
 add_action( 'plugins_loaded', array( 'Post_Type_Archive_Links', 'init' ) );
 
-var_dump( 'hello' );
-
 class Post_Type_Archive_Links {
 	/**
 	 * Instance of the class
