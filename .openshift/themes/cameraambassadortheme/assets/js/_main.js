@@ -56,6 +56,31 @@ var Roots = {
       });
 
       $('.jstooltip').tooltip();
+
+      var $saved = $('.saved'),
+        $saver = $('.saver');
+
+      $saved.popover({
+        placement: 'left',
+        title: 'Added to saved list',
+        content: function() {
+          return $('h1.entry-title').text();
+        },
+        trigger: 'manual',
+        container: 'body'
+      });
+
+      $saver.click(function() {
+        var id = $(this).data('id');
+
+        $(window).scrollTop(0);
+
+        $saved.popover('show');
+      });
+
+      $saved.click(function() {
+        $saved.popover('hide');
+      });
     }
   },
   // Home page

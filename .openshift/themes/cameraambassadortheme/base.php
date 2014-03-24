@@ -19,6 +19,30 @@
 
   <div class="wrap container" role="document">
     <?php ca_the_breadcrumb();?>
+
+    <a href="#saved" class="saved" data-toggle="modal" data-target="#savedModal">
+      <span class="glyphicon glyphicon-camera"></span>
+    </a>
+
+    <div class="modal fade" id="savedModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Saved items</h4>
+          </div>
+          <div class="modal-body">
+            Nothing saved yet.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info">
+              Contact sales about these items
+            </button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <div class="content row">
       <main class="main <?php echo roots_main_class(); ?>" role="main">
         <?php include roots_template_path(); ?>

@@ -27,7 +27,7 @@ while ( have_posts() ) : the_post(); ?>
           <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#rentModal">
             Rent this camera
           </button>
-          <button type="button" class="btn btn-default jstooltip btn-block" data-toggle="tooltip" data-placement="bottom" title="Save for later">
+          <button type="button" class="btn btn-default btn-block jstooltip saver" data-toggle="tooltip" data-placement="bottom" title="Save for later" data-id="<?php the_ID(); ?>">
             Save <span class="glyphicon glyphicon-camera"></span>
           </button>
 
@@ -36,7 +36,7 @@ while ( have_posts() ) : the_post(); ?>
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title">Rent the <?php the_title(); ?></h4>
+                  <h4 class="modal-title"><?php the_title(); ?></h4>
                 </div>
                 <div class="modal-body">
                   <form role="form">
@@ -56,7 +56,7 @@ while ( have_posts() ) : the_post(); ?>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary">
-                    Request this camera
+                    Request camera
                   </button>
                 </div>
               </div><!-- /.modal-content -->
