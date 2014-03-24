@@ -12,8 +12,8 @@
           $img[0],
           get_the_title()
         );
-      }
-?>
+      } ?>
+
     </header>
     <div class="entry-content">
       <p>
@@ -31,6 +31,30 @@
             <td>Weight</td>
             <td><?php the_field('weight'); ?> lbs. Body only</td>
           </tr>
+
+<?php
+          $rows = array(
+              array( 'Sensor Size', get_field('sensor_size') ),
+              array( 'Base D ISO', get_field('base_d_iso') ),
+              array( 'Latitude', get_field('latitude') ),
+              array( 'Frame Rate', get_field('frame_rate') ),
+              array( 'Resolution', get_field('resolution') ),
+              array( 'Bitrate/Format/Time', get_field('bitrate_format_time') ),
+              array( 'Data', get_field('data') )
+            );
+
+          foreach( $rows as $key => $row ) {
+            if ( empty($row[ 1 ]) ) {
+              continue;
+            } ?>
+
+            <tr>
+              <td><?php echo $row[ 0 ]; ?></td>
+              <td><?php echo $row[ 1 ]; ?></td>
+            </tr>
+<?php
+          } ?>
+
         </table>
       </section>
     </div>

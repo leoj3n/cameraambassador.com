@@ -82,7 +82,7 @@ add_action( 'init', 'CA_register_lens_post_type' );
 
 function ca_the_breadcrumb() {
   if ( function_exists('yoast_breadcrumb') ) {
-    echo '<div class="content row"><div class="col-xs-12">';
+    echo '<div class="breadcrumb-wrapper content row"><div class="col-xs-12">';
 
     $bc = yoast_breadcrumb( '', '', false );
 
