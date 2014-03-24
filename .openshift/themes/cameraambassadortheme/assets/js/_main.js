@@ -6,7 +6,7 @@
  * replace the dash with an underscore when adding it to the object below.
  *
  * .noConflict()
- * The routing is enclosed within an anonymous function so that you can 
+ * The routing is enclosed within an anonymous function so that you can
  * always reference jQuery with $, even when in .noConflict() mode.
  *
  * Google CDN, Latest jQuery
@@ -16,13 +16,46 @@
 
 (function($) {
 
-// Use this variable to set up the common and page specific functions. If you 
+// Use this variable to set up the common and page specific functions. If you
 // rename this variable, you will also need to rename the namespace below.
 var Roots = {
   // All pages
   common: {
     init: function() {
-      // JavaScript to be fired on all pages
+      var comparing = false,
+        $compareBtn = $('.compare-button'),
+        $compareCheckbox = $('.compare-checkbox');
+
+      $compareBtn.click(function( e ) {
+        var $glyph = $( 'span', this );
+
+        if ( !comparing ) {
+          $compareCheckbox.show();
+
+          if ( $glyph.hasClass('glyphicon-list') ) {
+            $glyph
+              .removeClass('glyphicon-list')
+              .addClass('glyphicon-remove');
+          }
+
+          comparing = true;
+        } else {
+          $compareCheckbox.hide();
+
+          if ( $glyph.hasClass('glyphicon-remove') ) {
+            $glyph
+              .removeClass('glyphicon-remove')
+              .addClass('glyphicon-list');
+          }
+
+          comparing = false;
+        }
+
+        e.preventDefault();
+        return false;
+      });
+
+      $('.jstooltip').tooltip();
     }
   },
   // Home page

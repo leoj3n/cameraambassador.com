@@ -46,17 +46,30 @@ function roots_widgets_init() {
   #
 
   register_widget('List_Posts_Widget');
+  register_widget('List_Related_Posts_Widget');
   register_widget('Roots_Vcard_Widget');
 }
 add_action( 'widgets_init', 'roots_widgets_init' );
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * List Posts widget
  */
 class List_Posts_Widget extends WP_Widget {
   private $fields = array(
-    'title'          => 'Title (optional)',
-    'type'           => 'Type'
+    'title' => 'Title (optional)',
+    'type' => 'Type'
   );
 
   function __construct() {
@@ -75,8 +88,6 @@ class List_Posts_Widget extends WP_Widget {
   }
 
   function widget( $args, $instance ) {
-    // global $post;
-
     if ( !isset($args[ 'widget_id' ]) ) {
       $args[ 'widget_id' ] = null;
     }
@@ -104,28 +115,47 @@ class List_Posts_Widget extends WP_Widget {
       echo $before_title, $title, $after_title;
     } ?>
 
-    <div class="posts-list list-group">
+    <div class="panel panel-primary">
+
+      <div class="posts-list list-group">
 
 <?php
-    $posts = get_posts(
-      array(
-        'offset'         => 0,
-        'orderby'        => 'title',
-        'order'          => 'ASC',
-        'post_type'      => 'camera',
-        'post_status'    => 'publish',
-        'posts_per_page' => -1
-      ));
+      $posts = get_posts(
+        array(
+          'offset'         => 0,
+          'orderby'        => 'title',
+          'order'          => 'ASC',
+          'post_type'      => $instance[ 'type' ],
+          'post_status'    => 'publish',
+          'posts_per_page' => -1
+        ));
 
-    foreach ( $posts as $key => $post ) {?>
-      <a href="<?php echo get_permalink( $post->ID ); ?>"
-        class="list-group-item<?php
-          echo $post->ID === get_the_ID() ? ' active' : '';
-        ?>">
-        <?php echo $post->post_title; ?>
-      </a>
+      foreach ( $posts as $key => $post ) :
+        $active = $post->ID === get_the_ID(); ?>
+
+        <a href="<?php echo get_permalink( $post->ID ); ?>"
+          class="list-group-item<?php
+            echo $active ? ' active' : '';
+          ?>">
+          <span class="compare-checkbox" style="display: none;">
+            <input type="checkbox"<?php
+              echo $active ? ' checked="checked"' : '';
+            ?>>
+          </span>
+          <?php echo $post->post_title; ?>
+        </a>
+
 <?php
-      } ?>
+      endforeach; ?>
+
+      <div class="panel-footer">
+        <button type="button" class="compare-button btn btn-lg btn-primary">
+          <span class="glyphicon glyphicon-list"></span>
+        </button>
+        <span class="label label-info">Click to compare</span>
+      </div>
+
+      </div>
     </div>
 
 <?php
@@ -141,8 +171,7 @@ class List_Posts_Widget extends WP_Widget {
     foreach ( $this->fields as $name => $label ) {
       ${$name} = isset($instance[ $name ])
         ? esc_attr($instance[ $name ])
-        : '';
-?>
+        : ''; ?>
 
     <p>
       <label for="<?php echo esc_attr($this->get_field_id($name)); ?>">
@@ -157,6 +186,158 @@ class List_Posts_Widget extends WP_Widget {
 
 <?php
     }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * List Related Posts widget
+ */
+class List_Related_Posts_Widget extends WP_Widget {
+  private $fields = array(
+    'title' => 'Title (optional)',
+    'relationship' => 'Relationship'
+  );
+
+  function __construct() {
+    $widget_ops = array(
+      'classname' => 'widget_list_related_posts',
+      'description' => __(
+          'Use this widget to list custom posts using Bootstrap', 'roots'
+        )
+    );
+
+    $this->WP_Widget(
+      'widget_list_related_posts',
+      __( 'C.A. List Related Posts', 'roots' ),
+      $widget_ops
+    );
+  }
+
+  function widget( $args, $instance ) {
+    if ( !isset($args[ 'widget_id' ]) ) {
+      $args[ 'widget_id' ] = null;
+    }
+
+    extract( $args, EXTR_SKIP );
+
+    $title = apply_filters(
+      'widget_title',
+      empty($instance[ 'title' ])
+        ? __( 'Posts List', 'roots' )
+        : $instance[ 'title' ],
+      $instance,
+      $this->id_base
+    );
+
+    foreach ( $this->fields as $name => $label ) {
+      if ( !isset($instance[ $name ]) ) {
+        $instance[ $name ] = '';
+      }
+    }
+
+    echo $before_widget;
+
+    if ( $title ) {
+      echo $before_title, $title, $after_title;
+    } ?>
+
+<?php
+      $posts = get_field($instance[ 'relationship' ]);
+
+      #
+      # Abort if no related posts
+      #
+
+      if ( empty($posts) ) : ?>
+
+      <div class="alert alert-info">No related posts.</div>
+
+<?php
+        return;
+      endif;
+
+      foreach ( $posts as $key => $post ) : ?>
+
+      <div class="media">
+        <a class="pull-left" href="<?php echo get_permalink($post->ID); ?>">
+
+<?php
+          if (
+            $img = wp_get_attachment_image_src(
+                get_post_meta( $post->ID, '_thumbnail_id', true ),
+                'thumbnail'
+              )
+          ) : ?>
+
+          <img width="64"
+            class="media-object"
+            src="<?php echo $img[0]; ?>"
+            alt="<?php echo $post->title; ?>">
+
+<?php
+          else : ?>
+
+          <img class="media-object"
+            src="<?php echo get_template_directory_uri(); ?>/assets/img/64x64.svg"
+            alt="<?php echo $post->title; ?>">
+
+<?php
+          endif; ?>
+
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><?php echo $post->post_title; ?></h4>
+          <?php the_field( 'description', $post->ID ); ?>
+        </div>
+      </div>
+
+<?php
+      endforeach; ?>
+
+<?php
+    echo $after_widget;
+  }
+
+  function update( $new_instance, $old_instance ) {
+    $instance = array_map( 'strip_tags', $new_instance );
+    return $instance;
+  }
+
+  function form( $instance ) {
+    foreach ( $this->fields as $name => $label ) :
+      ${$name} = isset($instance[ $name ])
+        ? esc_attr($instance[ $name ])
+        : ''; ?>
+
+    <p>
+      <label for="<?php echo esc_attr($this->get_field_id($name)); ?>">
+        <?php _e( "{$label}:", 'roots' ); ?>
+      </label>
+      <input class="widefat"
+        id="<?php echo esc_attr($this->get_field_id($name)); ?>"
+        name="<?php echo esc_attr($this->get_field_name($name)); ?>"
+        type="text"
+        value="<?php echo ${$name}; ?>">
+    </p>
+
+<?php
+    endforeach;
   }
 }
 

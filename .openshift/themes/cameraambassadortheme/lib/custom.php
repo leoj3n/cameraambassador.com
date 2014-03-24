@@ -80,6 +80,9 @@ function CA_register_lens_post_type() {
 }
 add_action( 'init', 'CA_register_lens_post_type' );
 
+/**
+ * Cleanup and output yoast breadcrumb
+ */
 function ca_the_breadcrumb() {
   if ( function_exists('yoast_breadcrumb') ) {
     echo '<div class="breadcrumb-wrapper content row"><div class="col-xs-12">';
