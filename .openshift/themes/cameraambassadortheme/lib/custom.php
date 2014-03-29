@@ -56,6 +56,10 @@ HTML;
  */
 add_action( 'save_post', 'save_book_meta' );
 function save_book_meta( $post_id ) {
+  if ( !isset($_POST[ 'post_type' ]) ) {
+    return;
+  }
+
   switch( $_POST[ 'post_type' ] ) {
     case 'camera':
       $data = array();

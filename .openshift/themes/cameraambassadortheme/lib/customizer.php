@@ -175,7 +175,7 @@ function ca_custom_control_classes() {
 
     public function render_content() {
       $label = esc_html($this->label);
-      $valu = esc_textarea($this->value());
+      $value = esc_textarea($this->value());
 
       ob_start(); $this->link();
       $link = ob_get_clean();

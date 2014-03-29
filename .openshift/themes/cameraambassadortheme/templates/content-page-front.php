@@ -30,17 +30,17 @@ if ( !empty($location) ) :
 HTML;
 endif;
 
-if ( $cta ) :
-  echo <<<HTML
-<section class="cta">
-  <div class="container">
-    <div class="cta-content">
-      {$cta[ 'content' ]}
-    </div>
-  </div>
-</section>
-HTML;
-endif;
+// if ( $cta[ 'content' ] ) :
+//   echo <<<HTML
+// <section class="cta">
+//   <div class="container">
+//     <div class="cta-content">
+//       {$cta[ 'content' ]}
+//     </div>
+//   </div>
+// </section>
+// HTML;
+// endif;
 
 #
 # Team help

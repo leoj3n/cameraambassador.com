@@ -4,6 +4,8 @@ $home_url = home_url();
 $blog_title = get_bloginfo('name');
 $assets = get_template_directory_uri() . '/assets';
 
+$nav = '';
+
 if ( has_nav_menu('primary_navigation') ) :
   $nav = wp_nav_menu(
       array(
