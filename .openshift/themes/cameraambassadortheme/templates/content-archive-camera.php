@@ -1,31 +1,41 @@
-<article <?php post_class('col-sm-6'); ?>>
-  <header>
 <?php
-      if (
-        $img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' )
-      ) { ?>
+ob_start(); post_class('col-sm-6');
+$class = ob_get_clean();
 
-    <a href="<?php the_permalink(); ?>">
-      <p class='camera-preview'>
-        <span class="btn btn-primary">$<?php the_field('price'); ?></span>
+$title = get_the_title();
+$price = get_field('price');
+$permalink = get_permalink();
+$desc = get_field('description');
 
-<?php
-        printf(
-          '<img src="%s" alt="Photo of the %s" class="img-responsive center-block">',
-          $img[0],
-          get_the_title()
-        ); ?>
+echo <<<HTML
+<article {$class}>
+  <div class="inner">
+    <header>
+      <h2 class="entry-title"><a href="{$permalink}">{$title}</a></h2>
+HTML;
 
-      </p>
-    </a>
+if (
+  $img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' )
+) :
+  echo <<<HTML
+      <a href="{$permalink}">
+        <p class='camera-preview'>
+          <span class="btn btn-primary">$ {$price}</span>
+          <img
+            src="{$img[ 0 ]}"
+            alt="Photo of the {$title}"
+            class="img-responsive center-block">
+        </p>
+      </a>
+HTML;
+endif;
 
-<?php
-      } ?>
-
-    <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-  </header>
-  <div class="entry-summary hide">
-    <?php the_field('description'); ?>
-  </div>
+echo <<<HTML
+    </header>
+    <div class="entry-summary">
+      {$desc}
+    </div>
+  </div><!-- /.inner -->
 </article>
+HTML;
 

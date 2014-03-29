@@ -1,61 +1,90 @@
-<?php get_template_part('templates/head'); ?>
-<body <?php body_class(); ?>>
+<?php
 
-  <!--[if lt IE 8]>
-    <div class="alert alert-warning">
-      <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'roots'); ?>
-    </div>
-  <![endif]-->
+get_template_part('templates/head');
 
-  <?php
-    do_action('get_header');
-    // Use Bootstrap's navbar if enabled in config.php
-    if (current_theme_supports('bootstrap-top-navbar')) {
-      get_template_part('templates/header-top-navbar');
-    } else {
-      get_template_part('templates/header');
-    }
-  ?>
+ob_start(); body_class();
+$body_class = ob_get_clean();
 
+echo <<<HTML
+<body {$body_class}>
+HTML;
+
+  do_action('get_header');
+
+  get_template_part('templates/header-top-navbar');
+
+  $breadcrumb = ca_breadcrumb();
+
+  $breadcrumb_html = <<<HTML
+  {$breadcrumb}
+  <a
+    href="#saved"
+    class="saved"
+    data-toggle="modal"
+    data-target="#savedModal">
+    <span class="glyphicon glyphicon-camera"></span>
+  </a>
+
+  <div class="modal fade" id="savedModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="close"
+            aria-hidden="true"
+            data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Saved items</h4>
+        </div>
+        <div class="modal-body">
+          No saved items &mdash; see
+          <a href="/camera">Cameras</a> or
+          <a href="/lens">Lenses</a>.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info">
+            Contact sales about these items
+          </button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+HTML;
+
+  $main_class = roots_main_class();
+
+  ob_start(); include roots_template_path();
+  $template_html = ob_get_clean();
+
+  if ( roots_display_sidebar() ) {
+    $sidebar_class = roots_sidebar_class();
+
+    ob_start(); include roots_sidebar_path();
+    $sidebar = ob_get_clean();
+
+    $sidebar_html = <<<HTML
+      <aside class="sidebar {$sidebar_class}" role="complementary">
+        {$sidebar}
+      </aside><!-- /.sidebar -->
+HTML;
+  }
+
+  echo <<<HTML
   <div class="wrap container" role="document">
-    <?php ca_the_breadcrumb();?>
-
-    <a href="#saved" class="saved" data-toggle="modal" data-target="#savedModal">
-      <span class="glyphicon glyphicon-camera"></span>
-    </a>
-
-    <div class="modal fade" id="savedModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Saved items</h4>
-          </div>
-          <div class="modal-body">
-            Nothing saved yet.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-info">
-              Contact sales about these items
-            </button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <div class="content row">
-      <main class="main <?php echo roots_main_class(); ?>" role="main">
-        <?php include roots_template_path(); ?>
-      </main><!-- /.main -->
-      <?php if (roots_display_sidebar()) : ?>
-        <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
-          <?php include roots_sidebar_path(); ?>
-        </aside><!-- /.sidebar -->
-      <?php endif; ?>
+      {$breadcrumb_html}
+      <div class="content row">
+        <main class="main {$main_class}" role="main">
+          {$template_html}
+        </main><!-- /.main -->
+        {$sidebar_html}
     </div><!-- /.content -->
   </div><!-- /.wrap -->
+HTML;
 
-  <?php get_template_part('templates/footer'); ?>
+  get_template_part('templates/footer');
 
+echo <<<HTML
 </body>
 </html>
+HTML;
+

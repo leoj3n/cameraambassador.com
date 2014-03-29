@@ -1,3 +1,21 @@
+<?php
+
+$home_url = home_url();
+$blog_title = get_bloginfo('name');
+$assets = get_template_directory_uri() . '/assets';
+
+if ( has_nav_menu('primary_navigation') ) :
+  $nav = wp_nav_menu(
+      array(
+        'echo' => false,
+        'theme_location' => 'primary_navigation',
+        'menu_class' => 'nav navbar-nav navbar-right'
+      )
+    );
+endif;
+
+echo <<<HTML
+<div class="banner-wrapper">
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container">
     <div class="navbar-header">
@@ -7,23 +25,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?php echo home_url(); ?>/">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Camera-Ambassador-Logo.png">
-        <?php bloginfo('name'); ?>
+      <a class="navbar-brand" href="{$home_url}/">
+        <img
+          width="70"
+          height="70"
+          src="{$assets}/img/Camera-Ambassador-Logo_@2x.png">
+        <span>{$blog_title}</span>
       </a>
     </div>
 
     <nav class="collapse navbar-collapse" role="navigation">
-      <?php
-        if ( has_nav_menu('primary_navigation') ) :
-          wp_nav_menu(
-            array(
-              'theme_location' => 'primary_navigation',
-              'menu_class' => 'nav navbar-nav navbar-right'
-            )
-          );
-        endif;
-      ?>
+      {$nav}
     </nav>
   </div>
 </header>
+</div>
+HTML;
+

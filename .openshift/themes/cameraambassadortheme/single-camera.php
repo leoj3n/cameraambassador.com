@@ -1,1 +1,1 @@
-<?php get_template_part('templates/content', 'single-camera'); ?>
+<?php get_template_part( 'templates/content', 'single-camera' ); ?>

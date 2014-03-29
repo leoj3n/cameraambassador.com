@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "00d405228a7f50db959bfc0659b2d06d",
+    "hash": "7dee23bfc1c43e8698f3ff7ccd9e4474",
     "packages": [
         {
             "name": "composer/installers",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "c74a930ef0cb2e36c9f0c119eb920b82513c2e46"
+                "reference": "5457f08809983114aebd0a95dfa9e58a50bf560a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/c74a930ef0cb2e36c9f0c119eb920b82513c2e46",
-                "reference": "c74a930ef0cb2e36c9f0c119eb920b82513c2e46",
+                "url": "https://api.github.com/repos/composer/installers/zipball/5457f08809983114aebd0a95dfa9e58a50bf560a",
+                "reference": "5457f08809983114aebd0a95dfa9e58a50bf560a",
                 "shasum": ""
             },
             "replace": {
@@ -87,7 +87,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-03-21 15:33:48"
+            "time": "2014-03-26 23:15:27"
         },
         {
             "name": "easy-cpt",
@@ -95,6 +95,17 @@
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/JeffreyWay/Easy-WordPress-Custom-Post-Types/archive/master.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library"
+        },
+        {
+            "name": "htmLawed/htmLawed",
+            "version": "0.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "http://www.bioinformatics.org/phplabware/downloads/htmLawed.1.2.beta.5-12March2014.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -110,6 +121,29 @@
                 "shasum": null
             },
             "type": "wordpress-plugin"
+        },
+        {
+            "name": "wpackagist-plugin/advanced-code-editor",
+            "version": "2.2.5",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/advanced-code-editor/",
+                "reference": "tags/2.2.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/advanced-code-editor.2.2.5.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/advanced-code-editor": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/advanced-code-editor/"
         },
         {
             "name": "wpackagist-plugin/advanced-custom-fields",
@@ -203,6 +237,29 @@
             },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/post-type-archive-links/"
+        },
+        {
+            "name": "wpackagist-plugin/updraftplus",
+            "version": "1.9.0",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/updraftplus/",
+                "reference": "tags/1.9.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/updraftplus.1.9.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/updraftplus": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/updraftplus/"
         },
         {
             "name": "wpackagist-plugin/widget-settings-importexport",
