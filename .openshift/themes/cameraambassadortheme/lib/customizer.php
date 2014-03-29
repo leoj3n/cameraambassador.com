@@ -32,12 +32,11 @@ function ca_customize_register( $wp_customize ) {
   );
 
   $default_intro_content = <<<HTML
-<div class="row">
-  <div class="col-sm-12 text-center">
-    <h1 class="brand-font"><b>Camera Ambassador</b></h1>
-    <p class="lead">Camera gear & post-production for the rest of us.</p>
-    </p>
-  </div>
+<div class="intro-content row">
+<div class="col-sm-12 text-center">
+<h1 class="brand-font"><b>Camera Ambassador</b></h1>
+<p class="lead">Camera rental & post-production<span class="hidden-xs"> <u>for the rest of us</u></span>.</p>
+</div>
 </div>
 HTML;
 
@@ -83,7 +82,7 @@ HTML;
     'Search[placeholder]',
     array(
       'default' => esc_attr__(
-        'Start typing a camera, lens, or service name',
+        'Start typing a camera, lens, or service name (f.ex: “Epic” or “Editing”)',
         'roots'
       ),
       'sanitize_callback' => array(
