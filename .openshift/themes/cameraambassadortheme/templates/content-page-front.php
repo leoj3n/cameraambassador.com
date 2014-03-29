@@ -1,9 +1,8 @@
 <?php
 
-$theme_mods = get_theme_mods();
+$cta = get_theme_mod('CTA');
 $location = get_field('location');
 $team_content = get_field('section_2');
-$cta = $theme_mods[ 'CTA' ][ 'content' ];
 $location_content = get_field('section_1');
 $assets = get_template_directory_uri() . '/assets';
 
@@ -36,7 +35,7 @@ if ( $cta ) :
 <section class="cta">
   <div class="container">
     <div class="cta-content">
-      $cta
+      {$cta[ 'content' ]}
     </div>
   </div>
 </section>

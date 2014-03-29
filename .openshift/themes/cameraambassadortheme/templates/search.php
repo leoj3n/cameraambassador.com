@@ -1,7 +1,6 @@
 <?php
 
-$theme_mods = get_theme_mods();
-$search_placeholder = $theme_mods[ 'Search' ][ 'placeholder' ];
+$search = get_theme_mod('Search');
 
 echo <<<HTML
 <div class="search-wrapper">
@@ -15,7 +14,7 @@ echo <<<HTML
           id="search"
           type="text"
           class="form-control typeahead"
-          placeholder="{$search_placeholder}">
+          placeholder="{$search[ 'placeholder' ]}">
       </div>
     </form>
   </div>
