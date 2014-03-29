@@ -9,13 +9,13 @@ echo <<<HTML
 <body {$body_class}>
 HTML;
 
-  do_action('get_header');
+do_action('get_header');
 
-  get_template_part('templates/header-top-navbar');
+get_template_part('templates/header-top-navbar');
 
-  $breadcrumb = ca_breadcrumb();
+$breadcrumb = ca_breadcrumb();
 
-  $breadcrumb_html = <<<HTML
+$breadcrumb_html = <<<HTML
   {$breadcrumb}
   <a
     href="#saved"
@@ -51,25 +51,27 @@ HTML;
   </div><!-- /.modal -->
 HTML;
 
-  $main_class = roots_main_class();
+$main_class = roots_main_class();
 
-  ob_start(); include roots_template_path();
-  $template_html = ob_get_clean();
+ob_start(); include roots_template_path();
+$template_html = ob_get_clean();
 
-  if ( roots_display_sidebar() ) {
-    $sidebar_class = roots_sidebar_class();
+$sidebar_html = '';
 
-    ob_start(); include roots_sidebar_path();
-    $sidebar = ob_get_clean();
+if ( roots_display_sidebar() ) :
+  $sidebar_class = roots_sidebar_class();
 
-    $sidebar_html = <<<HTML
-      <aside class="sidebar {$sidebar_class}" role="complementary">
-        {$sidebar}
-      </aside><!-- /.sidebar -->
+  ob_start(); include roots_sidebar_path();
+  $sidebar = ob_get_clean();
+
+  $sidebar_html = <<<HTML
+<aside class="sidebar {$sidebar_class}" role="complementary">
+  {$sidebar}
+</aside><!-- /.sidebar -->
 HTML;
-  }
+endif;
 
-  echo <<<HTML
+echo <<<HTML
   <div class="wrap container" role="document">
       {$breadcrumb_html}
       <div class="content row">
@@ -81,7 +83,7 @@ HTML;
   </div><!-- /.wrap -->
 HTML;
 
-  get_template_part('templates/footer');
+get_template_part('templates/footer');
 
 echo <<<HTML
 </body>

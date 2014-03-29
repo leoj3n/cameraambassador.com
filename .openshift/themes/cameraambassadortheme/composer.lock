@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7dee23bfc1c43e8698f3ff7ccd9e4474",
+    "hash": "0b2083bb2046c9f99c2b0b1c73301d68",
     "packages": [
         {
             "name": "composer/installers",
@@ -88,17 +88,6 @@
                 "zikula"
             ],
             "time": "2014-03-26 23:15:27"
-        },
-        {
-            "name": "easy-cpt",
-            "version": "0.1.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/JeffreyWay/Easy-WordPress-Custom-Post-Types/archive/master.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "type": "library"
         },
         {
             "name": "htmLawed/htmLawed",
@@ -237,29 +226,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/post-type-archive-links/"
-        },
-        {
-            "name": "wpackagist-plugin/updraftplus",
-            "version": "1.9.0",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/updraftplus/",
-                "reference": "tags/1.9.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/updraftplus.1.9.0.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "replace": {
-                "wpackagist/updraftplus": "self.version"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/updraftplus/"
         },
         {
             "name": "wpackagist-plugin/widget-settings-importexport",

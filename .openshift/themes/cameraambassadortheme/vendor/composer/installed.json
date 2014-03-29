@@ -1,0 +1,290 @@
+[
+    {
+        "name": "wpackagist-plugin/akismet",
+        "version": "dev-trunk",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "svn",
+            "url": "http://plugins.svn.wordpress.org/akismet/",
+            "reference": "trunk"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://downloads.wordpress.org/plugin/akismet.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "replace": {
+            "wpackagist/akismet": "self.version"
+        },
+        "time": "2014-03-21 09:26:58",
+        "type": "wordpress-plugin",
+        "installation-source": "source",
+        "homepage": "http://wordpress.org/plugins/akismet/"
+    },
+    {
+        "name": "wpackagist-plugin/wordpress-seo",
+        "version": "1.5.2.5",
+        "version_normalized": "1.5.2.5",
+        "source": {
+            "type": "svn",
+            "url": "http://plugins.svn.wordpress.org/wordpress-seo/",
+            "reference": "tags/1.5.2.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://downloads.wordpress.org/plugin/wordpress-seo.1.5.2.5.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "replace": {
+            "wpackagist/wordpress-seo": "self.version"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "http://wordpress.org/plugins/wordpress-seo/"
+    },
+    {
+        "name": "wpackagist-plugin/front-end-editor",
+        "version": "2.3.1",
+        "version_normalized": "2.3.1.0",
+        "source": {
+            "type": "svn",
+            "url": "http://plugins.svn.wordpress.org/front-end-editor/",
+            "reference": "tags/2.3.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://downloads.wordpress.org/plugin/front-end-editor.2.3.1.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "replace": {
+            "wpackagist/front-end-editor": "self.version"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "http://wordpress.org/plugins/front-end-editor/"
+    },
+    {
+        "name": "wpackagist-plugin/advanced-custom-fields",
+        "version": "4.3.5",
+        "version_normalized": "4.3.5.0",
+        "source": {
+            "type": "svn",
+            "url": "http://plugins.svn.wordpress.org/advanced-custom-fields/",
+            "reference": "trunk"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://downloads.wordpress.org/plugin/advanced-custom-fields.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "replace": {
+            "wpackagist/advanced-custom-fields": "self.version"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "http://wordpress.org/plugins/advanced-custom-fields/"
+    },
+    {
+        "name": "wpackagist-plugin/post-type-archive-links",
+        "version": "1.2",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "svn",
+            "url": "http://plugins.svn.wordpress.org/post-type-archive-links/",
+            "reference": "tags/1.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://downloads.wordpress.org/plugin/post-type-archive-links.1.2.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "replace": {
+            "wpackagist/post-type-archive-links": "self.version"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "http://wordpress.org/plugins/post-type-archive-links/"
+    },
+    {
+        "name": "wpackagist-plugin/widget-settings-importexport",
+        "version": "1.2",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "svn",
+            "url": "http://plugins.svn.wordpress.org/widget-settings-importexport/",
+            "reference": "tags/1.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://downloads.wordpress.org/plugin/widget-settings-importexport.1.2.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "replace": {
+            "wpackagist/widget-settings-importexport": "self.version"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "http://wordpress.org/plugins/widget-settings-importexport/"
+    },
+    {
+        "name": "composer/installers",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/installers.git",
+            "reference": "5457f08809983114aebd0a95dfa9e58a50bf560a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/installers/zipball/5457f08809983114aebd0a95dfa9e58a50bf560a",
+            "reference": "5457f08809983114aebd0a95dfa9e58a50bf560a",
+            "shasum": ""
+        },
+        "replace": {
+            "shama/baton": "*"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2014-03-26 23:15:27",
+        "type": "composer-installer",
+        "extra": {
+            "class": "Composer\\Installers\\Installer",
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Composer\\Installers\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kyle Robinson Young",
+                "email": "kyle@dontkry.com",
+                "homepage": "https://github.com/shama",
+                "role": "Developer"
+            }
+        ],
+        "description": "A multi-framework Composer library installer",
+        "homepage": "http://composer.github.com/installers/",
+        "keywords": [
+            "Craft",
+            "Hurad",
+            "MODX Evo",
+            "OXID",
+            "WolfCMS",
+            "agl",
+            "annotatecms",
+            "cakephp",
+            "codeigniter",
+            "concrete5",
+            "croogo",
+            "drupal",
+            "elgg",
+            "fuelphp",
+            "installer",
+            "joomla",
+            "kohana",
+            "laravel",
+            "lithium",
+            "magento",
+            "mako",
+            "mediawiki",
+            "modulework",
+            "phpbb",
+            "piwik",
+            "ppi",
+            "shopware",
+            "silverstripe",
+            "symfony",
+            "typo3",
+            "wordpress",
+            "zend",
+            "zikula"
+        ]
+    },
+    {
+        "name": "roots/roots-wrapper-toolbar",
+        "version": "0.1.1",
+        "version_normalized": "0.1.1.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/roots/roots-wrapper-toolbar/archive/master.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist"
+    },
+    {
+        "name": "wpackagist-plugin/advanced-code-editor",
+        "version": "2.2.5",
+        "version_normalized": "2.2.5.0",
+        "source": {
+            "type": "svn",
+            "url": "http://plugins.svn.wordpress.org/advanced-code-editor/",
+            "reference": "tags/2.2.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://downloads.wordpress.org/plugin/advanced-code-editor.2.2.5.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "replace": {
+            "wpackagist/advanced-code-editor": "self.version"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "http://wordpress.org/plugins/advanced-code-editor/"
+    },
+    {
+        "name": "htmLawed/htmLawed",
+        "version": "0.1.0",
+        "version_normalized": "0.1.0.0",
+        "dist": {
+            "type": "zip",
+            "url": "http://www.bioinformatics.org/phplabware/downloads/htmLawed.1.2.beta.5-12March2014.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "library",
+        "installation-source": "dist"
+    }
+]
