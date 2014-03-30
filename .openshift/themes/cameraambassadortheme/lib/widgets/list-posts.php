@@ -78,7 +78,7 @@ HTML;
       echo <<<HTML
     <a href="{$permalink}"
       class="list-group-item {$class}">
-      <span class="compare-checkbox" style="display: none;">
+      <span class="compare-checkbox hidden">
         <input type="checkbox" {$checked}>
       </span>
       {$post->post_title}
@@ -87,12 +87,14 @@ HTML;
     endforeach;
 
     echo <<<HTML
+    <!--
     <div class="panel-footer">
       <button type="button" class="compare-button btn btn-lg btn-primary">
         <span class="glyphicon glyphicon-list"></span>
       </button>
       <span class="label label-info">Click to compare</span>
     </div>
+    -->
 
   </div>
 </div>
