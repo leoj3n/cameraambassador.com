@@ -108,6 +108,36 @@ HTML;
     )
   );
 
+  $wp_customize->add_setting(
+    'Search[placeholdershort]',
+    array(
+      'default' => esc_attr__(
+        'Start typing (f.ex: “Epic” or “Editing”)',
+        'roots'
+      ),
+      'sanitize_callback' => array(
+        'CA_Text_Control',
+        'sanitize_content'
+      ),
+      'sanitize_js_callback' => array(
+        'CA_Text_Control',
+        'sanitize_content'
+      )
+    )
+  );
+
+  $wp_customize->add_control(
+    new CA_Text_Control(
+      $wp_customize,
+      'Search[placeholdershort]',
+      array(
+        'section' => 'Search',
+        'settings' => 'Search[placeholdershort]',
+        'label' => esc_html__( 'Placeholder Text (short)', 'roots' )
+      )
+    )
+  );
+
   #
   # CTA content
   #
@@ -154,6 +184,9 @@ HTML;
   $wp_customize->get_setting('blogname')->transport = 'postMessage';
   $wp_customize->get_setting('Intro[content]')->transport = 'postMessage';
   $wp_customize->get_setting('Search[placeholder]')->transport = 'postMessage';
+  $wp_customize
+    ->get_setting('Search[placeholdershort]')
+    ->transport = 'postMessage';
   $wp_customize->get_setting('CTA[content]')->transport = 'postMessage';
 
 }

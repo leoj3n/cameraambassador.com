@@ -14,7 +14,8 @@ echo <<<HTML
           id="search"
           type="text"
           class="form-control typeahead"
-          placeholder="{$search[ 'placeholder' ]}">
+          placeholder="{$search[ 'placeholder' ]}",
+          data-placeholder-short="{$search[ 'placeholdershort' ]}">
       </div>
     </form>
   </div>

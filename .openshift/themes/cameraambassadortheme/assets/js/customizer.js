@@ -50,6 +50,21 @@
   );
 
   //
+  // Search small placeholder
+  //
+
+  wp.customize(
+    'Search[placeholdershort]',
+    function( value ) {
+      value.bind(
+        function( to ) {
+          $('#search').val('').data( 'placeholder-short', to );
+        }
+      );
+    }
+  );
+
+  //
   // CTA content
   //
 

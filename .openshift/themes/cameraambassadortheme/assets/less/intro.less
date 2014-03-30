@@ -49,21 +49,35 @@
   border-radius: 6px !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+
+  width: 210px;
+  height: 44px;
+  font-size: 17.5px;
+  line-height: 30px;
+  padding: 11px 19px;
+  margin-bottom: 10px;
+
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
 }
 
-@media (max-width: @screen-xs-max) {
+.search input:focus {
+  border-color: @brand-primary;
+  box-shadow: 0 0 5px white;
+}
 
-  .input-group-addon,
-  .search .form-control {
-    border-radius: 0;
-  }
-
+.search .input-group-addon {
+  cursor: pointer;
+  background: white;
 }
 
 @media (min-width: @screen-sm-min) {
 
   .search .form-horizontal {
-    max-width: 75%;
+    max-width: 66%;
     margin: auto;
   }
 

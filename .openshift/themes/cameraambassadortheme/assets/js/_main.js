@@ -69,16 +69,23 @@ var Roots = {
   home: {
     init: function() {
       var orig_search_placeholder = $('#search').attr('placeholder');
+      var short_search_placeholder = $('#search').data('placeholder-short');
 
       $(window).on( 'resize', function() {
         var placeholder = orig_search_placeholder;
 
-        if ( Modernizr.mq('only screen and (max-width: 768px)') ) {
-          placeholder = 'Start typing (f.ex: “Epic” or “Editing”)';
+        if (
+          Modernizr.mq('only screen and (max-width: 991px) and (min-width: 768px), (max-width: 652px)')
+        ) {
+          placeholder = short_search_placeholder;
         }
 
         $('#search').attr( 'placeholder', placeholder );
       }).resize();
+
+      $('.search .input-group-addon').click(function() {
+        $('#search').focus();
+      });
 
       var cameras = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('camera'),
@@ -125,7 +132,20 @@ var Roots = {
       });
 
       $('#search').focus(function() {
-        var $sss = $(this);
+
+        //
+        // Don't scroll when affixed
+        //
+
+        if ( $('.search').hasClass('affix') ) {
+          return;
+        }
+
+        //
+        // Scroll to input
+        //
+
+        var $sss = $('.intro-content');
 
         $( 'html, body' ).animate(
           {

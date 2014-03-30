@@ -5,7 +5,7 @@
 .tt-query,
 .tt-hint {
   padding: 8px 12px;
-  border: 2px solid #ccc;
+  border: 2px solid @brand-primary;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -24,7 +24,7 @@
 
 .tt-dropdown-menu {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 56px;
   padding: 8px 0;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -41,6 +41,12 @@
   padding: 3px 20px;
   font-size: 18px;
   line-height: 24px;
+  color: @link-color;
+  cursor: pointer;
+}
+
+.tt-suggestion:hover {
+  color: @link-hover-color;
 }
 
 .tt-suggestion.tt-is-under-cursor {
