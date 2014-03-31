@@ -62,7 +62,7 @@ echo <<<HTML
           <li>
             <img
               alt="Eirca"
-              src="http://api.randomuser.me/0.3.2/portraits/women/16.jpg">
+              src="http://api.randomuser.me/0.3.2/portraits/women/45.jpg">
               <b>Erica Duffy</b>
           </li>
           <li>
