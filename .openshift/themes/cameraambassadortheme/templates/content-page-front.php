@@ -73,7 +73,8 @@ echo <<<HTML
           </li>
           <li>
             <img
-              alt="John"src="http://api.randomuser.me/0.3.2/portraits/men/1.jpg">
+              alt="John"
+              src="http://api.randomuser.me/0.3.2/portraits/men/1.jpg">
               <b>John Doe</b>
           </li>
         </ol>

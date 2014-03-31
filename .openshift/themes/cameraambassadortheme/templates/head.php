@@ -74,7 +74,7 @@ echo <<<HTML
   <link
     type='text/css'
     rel='stylesheet'
-    href='http://fonts.googleapis.com/css?family=Aladin|Rancho'>
+    href='https://fonts.googleapis.com/css?family=Aladin|Rancho'>
 </head>
 HTML;
 
