@@ -78,7 +78,8 @@ function save_book_meta( $post_id ) {
         array_push(
           $data,
           array(
-            'camera' => $camera->post_title
+            'camera' => $camera->post_title,
+            'link' => get_permalink( $camera->ID )
           )
         );
       }
@@ -106,7 +107,8 @@ function save_book_meta( $post_id ) {
         array_push(
           $data,
           array(
-            'lens' => $lens->post_title
+            'lens' => $lens->post_title,
+            'link' => get_permalink( $lens->ID )
           )
         );
       }

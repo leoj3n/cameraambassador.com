@@ -1,9 +1,15 @@
-(function($) {
+(function( $ ) {
 
 var Roots = {
+
+  //
   // All pages
+  //
+
   common: {
     init: function() {
+
+/*
       var comparing = false,
         $compareBtn = $('.compare-button'),
         $compareCheckbox = $('.compare-checkbox');
@@ -36,6 +42,7 @@ var Roots = {
         e.preventDefault();
         return false;
       });
+*/
 
       $('.jstooltip').tooltip();
 
@@ -43,8 +50,8 @@ var Roots = {
         $saver = $('.saver');
 
       $saved.popover({
-        placement: 'left',
         title: 'Saved',
+        placement: 'left',
         content: function() {
           return $('h1.entry-title').text();
         },
@@ -65,14 +72,24 @@ var Roots = {
       });
     }
   },
+
+  //
   // Home page
+  //
+
   home: {
     init: function() {
       var $sss,
         placeholder,
+        $window = $(window),
         $search = $('#search'),
+        $searchClass = $('.search'),
         orig_search_placeholder = $search.attr('placeholder'),
         short_search_placeholder = $search.data('placeholder-short');
+
+      //
+      // Window resize
+      //
 
       $(window).on( 'resize', function() {
         if (
@@ -85,31 +102,38 @@ var Roots = {
           $sss = $search;
           placeholder = short_search_placeholder;
         } else {
-          $sss = $('.green-screen-bg .intro-content');
           placeholder = orig_search_placeholder;
+          $sss = $('.green-screen-bg .intro-content');
         }
 
         $search.attr( 'placeholder', placeholder );
       }).resize();
 
-      $('.search .input-group-addon').click(function() {
-        $search.focus();
-      });
+      //
+      // Search
+      //
+
+      var windowChanging = false;
 
       var cameras = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('camera'),
+        ttl: 1,
         queryTokenizer: Bloodhound.tokenizers.whitespace,
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('camera'),
         prefetch: WPURLS.stylesheet_directory_uri + '/data/cameras.json'
       });
 
       var lenses = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('lens'),
+        ttl: 1,
         queryTokenizer: Bloodhound.tokenizers.whitespace,
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('lens'),
         prefetch: WPURLS.stylesheet_directory_uri + '/data/lenses.json'
       });
 
-      cameras.initialize();
       lenses.initialize();
+      cameras.initialize();
+
+      lenses.clearPrefetchCache();
+      cameras.clearPrefetchCache();
 
       $('.search .typeahead').typeahead({
         highlight: true
@@ -129,16 +153,59 @@ var Roots = {
         templates: {
           header: '<h3 class="product-type">Lenses</h3>'
         }
+      }).on(
+        'typeahead:selected typeahead:autocompleted',
+        function( obj, datum ) {
+          windowChanging = true;
+          window.location.href = datum.link;
+        }
+      );
+
+      //
+      // Handle search enter event
+      //
+
+      $search.keyup(function( e ) {
+        if ( ( e.keyCode !== 13 ) || windowChanging ) {
+          return;
+        }
+
+        // cameras.get(
+        //   $search.val(),
+        //   function( suggestions ) {
+        //     $.each(
+        //       suggestions,
+        //       function( index, value ) {
+        //         console.log( value );
+        //       }
+        //     );
+        //   }
+        // );
+
+        window.location.href = '/search/' + $search.val();
       });
 
-      var $searchClass = $('.search');
-      var $window = $(window);
+      //
+      // Focus search input when clicking icon
+      //
+
+      $('.search .input-group-addon').click(function() {
+        $search.focus();
+      });
+
+      //
+      // Affix plugin the search
+      //
 
       $searchClass.affix({
         offset: {
           top: $searchClass.offset().top
         }
       });
+
+      //
+      // On search focus, scroll to $sss
+      //
 
       $search.focus(function() {
 
@@ -160,18 +227,8 @@ var Roots = {
           },
           'slow'
         );
+
       });
-
-
-
-
-
-
-
-
-
-
-
 
       /*
       *  render_map
@@ -305,37 +362,11 @@ var Roots = {
 
       }
 
-      /*
-      *  document ready
-      *
-      *  This function will render each map when the document is ready (page has loaded)
-      *
-      *  @type  function
-      *  @date  8/11/2013
-      *  @since 5.0.0
-      *
-      *  @param n/a
-      *  @return  n/a
-      */
+      $('.acf-map').each(function(){
 
-        $('.acf-map').each(function(){
+        render_map( $(this) );
 
-          render_map( $(this) );
-
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
+      });
 
     }
   },
