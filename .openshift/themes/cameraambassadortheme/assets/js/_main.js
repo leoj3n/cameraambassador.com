@@ -68,23 +68,32 @@ var Roots = {
   // Home page
   home: {
     init: function() {
-      var orig_search_placeholder = $('#search').attr('placeholder');
-      var short_search_placeholder = $('#search').data('placeholder-short');
+      var $sss,
+        placeholder,
+        $search = $('#search'),
+        orig_search_placeholder = $search.attr('placeholder'),
+        short_search_placeholder = $search.data('placeholder-short');
 
       $(window).on( 'resize', function() {
-        var placeholder = orig_search_placeholder;
-
         if (
-          Modernizr.mq('only screen and (max-width: 991px) and (min-width: 768px), (max-width: 652px)')
+          Modernizr.mq(
+            'only screen and ' +
+            '(max-width: 991px) and (min-width: 768px), ' +
+            '(max-width: 652px)'
+          )
         ) {
+          $sss = $search;
           placeholder = short_search_placeholder;
+        } else {
+          $sss = $('.green-screen-bg .intro-content');
+          placeholder = orig_search_placeholder;
         }
 
-        $('#search').attr( 'placeholder', placeholder );
+        $search.attr( 'placeholder', placeholder );
       }).resize();
 
       $('.search .input-group-addon').click(function() {
-        $('#search').focus();
+        $search.focus();
       });
 
       var cameras = new Bloodhound({
@@ -122,30 +131,28 @@ var Roots = {
         }
       });
 
-      var $search = $('.search');
+      var $searchClass = $('.search');
       var $window = $(window);
 
-      $search.affix({
+      $searchClass.affix({
         offset: {
-          top: $search.offset().top
+          top: $searchClass.offset().top
         }
       });
 
-      $('#search').focus(function() {
+      $search.focus(function() {
 
         //
         // Don't scroll when affixed
         //
 
-        if ( $('.search').hasClass('affix') ) {
+        if ( $searchClass.hasClass('affix') ) {
           return;
         }
 
         //
         // Scroll to input
         //
-
-        var $sss = $('.intro-content');
 
         $( 'html, body' ).animate(
           {

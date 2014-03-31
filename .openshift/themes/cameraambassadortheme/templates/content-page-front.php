@@ -62,20 +62,20 @@ echo <<<HTML
           <li>
             <img
               alt="Eirca"
-              src="http://api.randomuser.me/0.3.2/portraits/women/2.jpg">
+              src="http://api.randomuser.me/0.3.2/portraits/women/16.jpg">
               <b>Erica Duffy</b>
           </li>
           <li>
             <img
-              alt="Mary"
-              src="http://api.randomuser.me/0.3.2/portraits/women/1.jpg">
-              <b>Mary Jane</b>
+              alt="Jake"
+              src="http://api.randomuser.me/0.3.2/portraits/men/30.jpg">
+              <b>Jacob Archebold</b>
           </li>
           <li>
             <img
-              alt="John"
+              alt="Amir"
               src="http://api.randomuser.me/0.3.2/portraits/men/1.jpg">
-              <b>John Doe</b>
+              <b>Amir Stuart</b>
           </li>
         </ol>
       </div>
