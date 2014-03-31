@@ -68,9 +68,13 @@ wp_head();
 echo <<<HTML
   <link
     rel="alternate"
-    type="application/rss+xml"
+    href="{$rssurl}"
     title="{$name} Feed"
-    href="{$rssurl}">
+    type="application/rss+xml">
+  <link
+    type='text/css'
+    rel='stylesheet'
+    href='http://fonts.googleapis.com/css?family=Aladin|Rancho'>
 </head>
 HTML;
 

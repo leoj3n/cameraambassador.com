@@ -3,9 +3,9 @@
    ========================================================================== */
 
 .brand-font {
-  font-size: 24px;
-  font-family: Impact;
-  font-variant: small-caps;
+  //font-variant: small-caps;
+  font-weight: 200 !important;
+  font-family: 'Aladin', sans-serif;
 }
 
 .banner {
@@ -15,12 +15,13 @@
   .navbar-brand {
     padding-top: 0;
     padding-bottom: 0;
+    font-size: 20px;
 
     .brand-font;
 
     img {
-     height: @navbar-height;
-     width: @navbar-height;
+      width: @navbar-height;
+      height: @navbar-height;
     }
   }
 
@@ -28,11 +29,19 @@
     background-size: contain;
   }
 
-  .navbar-right {
-    padding-left: 50px;
-    background-size: contain;
-    background-position: 100% 0;
+  .navbar-nav {
+    .brand-font;
   }
 
+  .navbar-toggle {
+    border-color: black;
+  }
+
+}
+
+@media (min-width: @screen-xs-min) {
+  .banner .navbar-brand {
+    font-size: 30px;
+  }
 }
 

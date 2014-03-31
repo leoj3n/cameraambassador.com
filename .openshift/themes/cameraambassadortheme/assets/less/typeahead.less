@@ -4,18 +4,20 @@
 
 .tt-query,
 .tt-hint {
-  padding: 8px 12px;
-  border: 2px solid @brand-primary;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   outline: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid @brand-primary;
+
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
 }
 
 .tt-query {
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .tt-hint {
@@ -24,25 +26,26 @@
 
 .tt-dropdown-menu {
   width: 100%;
-  margin-top: 56px;
   padding: 8px 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
+  margin-top: 56px;
   border-radius: 8px;
-  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-  -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0,0,0,.2);
+
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
 
 .tt-suggestion {
-  padding: 3px 20px;
+  cursor: pointer;
   font-size: 18px;
+  padding: 3px 20px;
   line-height: 24px;
   color: @link-color;
-  cursor: pointer;
 }
 
 .tt-suggestion:hover {

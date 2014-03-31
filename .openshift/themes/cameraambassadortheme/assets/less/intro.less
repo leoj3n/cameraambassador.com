@@ -26,12 +26,6 @@
   min-height: 75px;
 }
 
-.search .product-type {
-  padding: 3px 0;
-  margin: 0 20px 5px 20px;
-  border-bottom: 1px solid #ccc;
-}
-
 .search.affix {
   top: 0;
   left: 0;
@@ -45,44 +39,77 @@
   background: @brand-primary;
 }
 
-.search input {
-  border-radius: 6px !important;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
+.search {
 
-  width: 210px;
-  height: 44px;
-  font-size: 17.5px;
-  line-height: 30px;
-  padding: 11px 19px;
-  margin-bottom: 10px;
+  .form-horizontal {
+    margin: auto;
+    max-width: 90%;
+  }
 
-  -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
-  outline: none;
+  .input-group {
+    width: 100%;
+  }
+
+  .product-type {
+    padding: 3px 0;
+    margin: 0 20px 5px 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  input {
+    border-radius: 6px !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+
+    height: 44px;
+    font-size: 17.5px;
+    line-height: 30px;
+    padding: 11px 19px;
+    margin-bottom: 10px;
+
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+  }
+
+  input:focus {
+    box-shadow: 0 0 5px white;
+    border-color: @gray-lighter;
+  }
+
+  .input-group-addon {
+    cursor: pointer;
+    background: white;
+    color: @brand-primary;
+  }
+
+} // .search
+
+.search:not(.affix) .input-group-addon {
+  //background: @brand-primary;
+  //border-color: @brand-primary;
 }
 
-.search input:focus {
-  border-color: @brand-primary;
-  box-shadow: 0 0 5px white;
-}
+.search.affix {
+  padding: 15px 0;
 
-.search .input-group-addon {
-  cursor: pointer;
-  background: white;
+  .input-group-addon {
+    display: none;
+  }
+
+  input {
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+  }
+
 }
 
 @media (min-width: @screen-sm-min) {
 
   .search .form-horizontal {
     max-width: 66%;
-    margin: auto;
-  }
-
-  .search.affix {
-    padding: 15px 0;
   }
 
   .home .green-screen-bg {

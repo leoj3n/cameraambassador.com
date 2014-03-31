@@ -15,7 +15,7 @@ $popularity = ( get_field('popularity') * 10 );
 echo <<<HTML
 <article {$class}>
   <header>
-    <h1 class="entry-title">{$title} (Camera)</h1>
+    <h1 class="entry-title"><span>{$title}</span> (Camera)</h1>
     <p class="lead">{$caption}</p>
 HTML;
 

@@ -61,20 +61,19 @@ echo <<<HTML
         <ol>
           <li>
             <img
-              alt="John"
-              src="http://lorempixel.com/200/200/people/1">
+              alt="Eirca"
+              src="http://api.randomuser.me/0.3.2/portraits/women/2.jpg">
               <b>Erica Duffy</b>
           </li>
           <li>
             <img
               alt="Mary"
-              src="http://lorempixel.com/200/200/people/2">
+              src="http://api.randomuser.me/0.3.2/portraits/women/1.jpg">
               <b>Mary Jane</b>
           </li>
           <li>
             <img
-              alt="Kate"
-              src="http://lorempixel.com/200/200/people/3">
+              alt="John"src="http://api.randomuser.me/0.3.2/portraits/men/1.jpg">
               <b>John Doe</b>
           </li>
         </ol>
